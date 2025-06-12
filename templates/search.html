@@ -1,0 +1,42 @@
+{%extends "base.html" %}
+
+{%block main_content%}
+<section>
+    <section>
+        <h1>Search for a user</h1>
+        <form action="" method="POST" novalidate>
+
+            {{form.hidden_tag()}}
+            {{form.user_id.label}}
+            {{form.user_id()}}
+            {% for error in form.user_id.errors %}
+            {{error}}
+            {% endfor %}
+            <br />
+            {{form.submit()}}
+            <br />
+            {{form.user_type() }}
+        </form>
+    </section>
+    <section class="search_results">
+        {%if result %}
+        <table>
+            {% for user_id in result %}
+            <tr>
+                <td>
+                    <img src="{{ url_for('static', filename='profile_pictures/' + user_id['profile_picture']) }}"
+                        alt="Profile Picture" width="150" height="150">
+                </td>
+                <td>
+                    {{ user_id['user_id'] }}
+                </td>
+                <td>
+                    <a href="{{ url_for('view_user', user_id=user_id['user_id']) }}">View Profile</a>
+                    <a href="{{ url_for('friendrequest', user_id=user_id['user_id']) }}">Send Friend Request</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table {% endif %} </section>
+    </section>
+
+    {% endblock %}

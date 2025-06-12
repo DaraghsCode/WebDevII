@@ -1,0 +1,57 @@
+{%extends "base.html" %}
+
+{%block main_content%}
+<section class="profile">
+<h1>Welcome to {{ user_id }}'s profile page!</h1>
+{% if profile["profile_picture"] != "default.png" %}
+<img src="{{ url_for('static', filename='profile_pictures/' + profile['profile_picture']) }}" alt="Profile Picture"
+    width="150" height="150">
+{% else %}
+<img src="{{ url_for('static', filename='profile_pictures/default.png') }}" alt="Default Profile Picture" width="150"
+    height="150">
+{% endif %}
+<table>
+    <tr>
+        <td> {{ profile["header"] }} </td>
+    </tr>
+    <tr>
+        <td> {{ profile["body"] }} </td>
+    </tr>
+    <tr>
+        <td> Friends: {{numFriends}}</td>
+    </tr>
+</table>
+{% if profile["body"] == " " %}
+<p>Looks like there hasn't been anything added to this profile yet.</p>
+{% endif %}
+{% if profile['user_id'] == session['user_id'] %}
+<p>
+    <a href="{{ url_for('edit_my_profile') }}">Edit Profile</a>
+</p>
+<p><a href="{{ url_for('deleteAccount') }}">I want to delete my profile</a></p>
+{% else %}
+<p>
+    <a href="{{ url_for('friendrequest', user_id=profile['user_id']) }}">Send Friend Request</a>
+</p>
+
+
+{% endif %}
+<h2>Recent Posts</h2>
+{%if activity %}
+<table>
+    {% for post in activity %}
+    <tr>
+    <td> <img src="{{ url_for('static', filename='profile_pictures/' + post['profile_picture']) }}"
+        alt="Profile Picture" width="150" height="150">
+    </td>
+        <td> {{ post["user_id"] }} posted:</td>
+        <td> {{ post["body"] }} </td>
+    </tr>
+    {% endfor %}
+</table>
+{%else %}
+<p>This user hasn't made any posts yet</p>
+{%endif%}
+</section>
+
+{% endblock %}

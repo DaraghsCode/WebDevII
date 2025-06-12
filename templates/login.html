@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MyCat</title>
+    <style>
+      html{
+        font-family: Verdana, Arial, sans-serif;
+        background-color: rgba(222, 221, 216, 0.714);
+      }
+      header{
+        display: flex;
+        background-color: white;
+        align-items: flex-end ;
+      }
+      h1{
+        margin-left: auto;
+        margin-right: 5%;
+      }
+      main{
+        margin-top: 5%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section{
+        text-align: center;
+        font-size: 200%;
+        border-radius: 25px;
+        border: 5px solid black;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      a:hover{
+        background-color: gray;
+      }
+    
+      body{
+        margin:0;
+      }
+      input{
+        font-size: 32px;
+      }
+    </style>
+</head>
+
+<header> 
+ <img src="{{ url_for('static', filename='logo.jpg') }}" alt="website logo" width="300">
+    <h1>Welcome</h1>
+  </header>
+
+<body>
+    <main>
+        <section>
+<h1>Login</h1>
+<p>
+<form action="" method="POST" novalidate>
+
+    {{form.hidden_tag()}}
+    <br/>
+    {{form.user_id.label}}
+    {{form.user_id()}}
+    {% for error in form.user_id.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.password.label}}
+    {{form.password()}}
+    {% for error in form.password.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.submit()}}
+</form>
+</p>
+<p>
+    <a href="{{ url_for('chooseAccount') }}">Click here to register</a>
+</p>
+</section>
+</main>
+</body>
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MyCat</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <nav id='nav'>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="website logo" width="300">
+        <ul>
+            <li>
+                <a href="{{ url_for('dashboard') }}">Home</a>
+            </li>
+            <li>
+                <a href="{{ url_for('search') }}">Search</a>
+            </li>
+            <li>
+                <a href="{{ url_for('friends') }}">Friends</a>
+            </li>
+            <li>
+                <a href="{{ url_for('view_user', user_id=session['user_id']) }}">My profile</a>
+            </li>
+            <li>
+                <a href="{{ url_for('notifications') }}">Notifications</a>
+            </li>
+            <li>
+                <a href="{{ url_for('logout') }}">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        {% block main_content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <section>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="website logo" width="300">
+        <p>
+            The top platform for feline professionals and companies to connect and show
+            their skills!
+        </p>
+    </section>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{%extends "base.html" %}
+
+{%block main_content%}
+<section class="friends">
+    <h1>Friend's List</h1>
+    {%if friends %}
+    <table>
+        {% for friend in friends %}
+        <tr>
+            <td><img src="{{ url_for('static', filename='profile_pictures/' + friend['profile_picture']) }}"
+                    alt="Profile Picture" width="150" height="150"></td>
+            <td>
+                {{ friend[0] }}
+            </td>
+            <td>
+                <a href="{{url_for('removefriend', user_id=friend[0])}}">removefriend</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>Uh oh, you have no friends.</p>
+    {% endif %}
+</section>
+<section class="friends">
+    <h2>Requests Awaiting Approval</h2>
+    {% if pending_requests %}
+    <table>
+        {% for request in pending_requests %}
+        <tr>
+            <td>{{ request["receiver_id"] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>You currently have no pending friend requests</p>
+    {% endif %}
+</section>
+
+{% endblock %}

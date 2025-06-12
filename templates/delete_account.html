@@ -1,0 +1,38 @@
+{%extends "base.html" %}
+
+{%block main_content%}
+<section>
+<h1>Delete your account</h1>
+<form action="" method="POST" novalidate>
+
+    {{form.hidden_tag()}}
+    <br/>
+    {{form.user_id.label}}
+    {{form.user_id()}}
+    {% for error in form.user_id.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.password.label}}
+    {{form.password()}}
+    {% for error in form.password.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{form.password2.label}}
+    {{form.password2()}}
+    {% for error in form.password.errors %}
+        {{error}}
+    {% endfor %}
+    <br/>
+    {{ form.double_check.label }}
+    {{ form.double_check() }}
+    <br/>
+    {{form.submit()}}
+</form>
+<p>
+    <a href="{{ url_for('index') }}">Take me back to the home page</a>
+</p>
+</section>
+
+{% endblock %}

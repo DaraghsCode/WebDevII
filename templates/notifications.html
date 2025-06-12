@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{%block main_content %}
+<section id="requests">
+<h1>Requests</h1>
+  {% if requests %}
+<table>
+    {% for request in requests %}
+    <tr>
+        <td> <img src="{{ url_for('static', filename='profile_pictures/' + request['profile_picture']) }}" alt="Profile Picture" width="150" height="150"></td>
+        <td>
+            {{request['sender_id']}}
+        </td>
+        <td>  <a href="{{ url_for('acceptrequest', user_id=request['sender_id']) }}">Accept</a></td>
+        <td>  <a href="{{ url_for('declinerequest', user_id=request['sender_id']) }}">Decline</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% else %}
+<p>Sorry! You don't have any friend requests at the moment</p>
+
+{% endif %}
+</section>
+
+{% endblock %}

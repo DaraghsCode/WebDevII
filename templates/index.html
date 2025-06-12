@@ -1,0 +1,78 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MyCat</title>
+    <style>
+      html{
+        font-family: Verdana, Arial, sans-serif;
+        background-color: rgba(222, 221, 216, 0.714);
+      }
+      header{
+        display: flex;
+        background-color: white;
+        align-items: flex-end ;
+      }
+      h1{
+        margin-left: auto;
+        margin-right: 5%;
+      }
+      main{
+        margin-top: 5%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section{
+        text-align: center;
+        font-size: 200%;
+        border-radius: 25px;
+        border: 5px solid black;
+        margin-top: 5%;
+      }
+      a{
+        text-decoration: none;
+        color: black;
+      }
+      a:hover{
+        background-color: gray;
+      }
+    
+      body{
+        margin:0;
+      }
+      footer{
+        text-align: center;
+      }
+    </style>
+</head>
+
+<body>
+  <header> 
+    <img src="{{ url_for('static', filename='logo.jpg') }}" alt="website logo" width="300">
+    <h1>Welcome</h1>
+  </header>
+  <main>
+    <section>
+  <p>
+  <a href="{{ url_for('chooseAccount') }}">I'd like to register!</a>
+  </p>
+  </section>
+  <section>
+  <p>
+    <a href="{{ url_for('login') }}">I already have an account</a>
+  </p>
+  </section>
+  </main>
+  <footer>
+    <p>Like our logo? We like it too but it isn't ours</p>
+    <p><a href="https://commons.wikimedia.org/wiki/File:MYCAT_logo.jpg">You can find it here</a></p>
+    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/">and here's a link of the respective licence</a></p>
+    <p></p>
+  </footer>
+</body>
+
+
+</html>
+
+
