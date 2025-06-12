@@ -3,3 +3,5 @@
 
 A simple assignment which requires students to write their own flask web application which must include a database. 
 I chose to make a social media platform using SQL,Python(flask & Jinja2),HTML, and CSS.
+
+I'm now looking to make further optimizations and add new more complex features!
