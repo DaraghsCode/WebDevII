@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MyCat</title>
+    <style>
+      html{
+        font-family: Verdana, Arial, sans-serif;
+        background-color: rgba(222, 221, 216, 0.714);
+      }
+      header{
+        background-color: white;
+      }
+      main{
+        margin-top: 5%;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      section{
+        text-align: center;
+        font-size: 200%;
+        border-radius: 25px;
+        border: 5px solid black;
+        margin-top: 5%;
+      }
+      body{
+        margin:0;
+      }
+      ul{
+        list-style: none;
+        padding: 0;
+      }
+      input{
+        font-size: 32px;
+      }
+    </style>
+</head>
+
+
+
+<header> <img src="{{ url_for('static', filename='logo.jpg') }}" alt="website logo" width="300"></header>
+<body>
+<main>
+    <section>
+<h1>Welcome!</h1>
+<form action="" method="POST" novalidate>
+
+    {{form.hidden_tag()}}
+    {{form.user_type.label}}
+    {{form.user_type()}}
+    <br/>
+    {{form.submit()}}
+</form>
+</section>
+</main>
+
+</body>
