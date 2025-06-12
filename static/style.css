@@ -1,0 +1,152 @@
+html{
+    background-color: white;
+}
+body{
+    margin:0;
+    font-family: Verdana, Arial, sans-serif;
+    background-color: rgba(222, 221, 216, 0.714);
+}
+nav{
+    width:100%;
+    background-color: white;
+    display: flex;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 5%;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end ;
+    flex-wrap: wrap;
+    
+}
+nav li a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+  }
+nav li{
+    float: left;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin:auto;
+    margin-top:5%;
+    margin-bottom: 5%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    border: 5px solid black;
+  }
+
+textarea {
+    resize: none;
+  }
+img {
+    max-width: 100%;  
+    height: auto;   
+    display: block;   
+}
+#feed{
+    width:50%;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+#feed img{
+    border: 5px solid black;
+    border-radius: 25px;
+}
+#feed table{
+    border: none;
+}
+.flashes{
+    text-align: center;
+    width: 100%;
+}
+#features{
+    width:100%;
+}
+#features tr ~ tr{
+    border-top: 2px solid black;
+}
+.search_results tr ~ tr{
+    border-top: 2px solid black;
+}
+h2{
+    text-align: center;
+}
+
+#profile{
+    width:20%;
+}
+nav{
+    background-color: white;
+}
+ul{
+    list-style-type: none;
+}
+footer{
+    background-color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+  }
+a:hover{
+    text-decoration: underline;
+}
+footer{
+    display: block;
+    text-align: center;
+    width:100%;
+}
+.friends{
+    width: 100%;
+}
+.friends *{
+    text-align: center;
+    border: none;
+}
+#requests tr ~ tr{
+    border-top: 2px solid black;
+} 
+.profile{
+    font-size: 150%;
+}
+.profile img{
+    border: 5px solid black;
+}
+
+.profile table{
+    border: none;
+    margin-left: 0;
+}
+footer img{
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (min-width: 1050px){
+    #features{
+        width:26%;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    main{
+        width:75%
+    }
+    
+}
